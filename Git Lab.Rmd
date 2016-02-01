@@ -1,0 +1,258 @@
+---
+output: html_document
+---
+# Introduction to Github and Git
+
+---
+
+Welcome to BIO 260 and CSCI E107. In this lab we'll cover some basics of Github and Git, including installation instructions for git as well as a walk through on homework submission.
+
+This lab is largely taken from the the [first CS109 lab in 2015](https://github.com/cs109/2015lab1) which is in turn largely taken from [IACS's AC 297s](https://github.com/rdadolf/ac297r-tools-tutorial) course, and the world keeps turning. 
+
+
+##First Things
+
+Do this now, the sooner we get your Github accounts and set up a working verion of git the earlier we can spot and work through inevitable issues. 
+
+###1. Create your github account
+
+If you still do not have a github account as yet, create it at:
+
+https://github.com
+
+This step is **mandatory**. We will need your github username. We are using github for many aspects of this course, including
+
+- doing and submitting homework
+- collaborating on your project
+
+To sign up for an account, just go to [github](https://github.com) and pick a unique username, an email address, and a password. Once you've done that, your github page will be at https://github.com/your-username.
+
+Github also provides a student [developer package](https://education.github.com/pack). This is something that might be nice to have, but it is not necessary for the course. Github may take some time to approve your application for the package. Please note that this is optional and you do not have to have the package approved to fill out the survey. 
+
+
+###2. Programming expectations
+
+All the assignments and labs for this class will use R and, for the most part, the R Markdown files currently viewing. Knowledge of R is not a prerequisite for this course, **provided you are comfortable learning on your own as needed**. Basically, you should feel comfortable with:
+
+* How to look up R syntax on Google and StackOverflow.
+* Basic programming concepts like functions, loops, arrays, dictionaries, strings, and if statements.
+* How to learn new libraries by reading documentation.
+* Asking questions on Canvas forums and StackOverflow.
+
+
+##Setting up your git environment
+
+###1. Installing git
+
+We will be using the command line version of git.
+
+On linux, install git using your system package manager (yum, apt-get, etc)
+
+On the Mac, if you ever installed Xcode, you should have git installed. Or you might have installed it using `homebrew`. Either of these are fine as long as the git version is greater than 2.0
+
+Open up a Terminal in 
+
+Otherwise, on Mac and Windows, go to http://git-scm.com. Accept all defaults in the installation process. On Windows, installing git will also install for you a minimal unix environment with a "bash" shell and terminal window. Voila, your windows computer is transformed into a unixy form.
+
+####Windows specific notes
+
+There will be an installer `.exe` file you need to click. Accept all the defaults.
+
+Here is a screenshot from one of the defaults. It makes sure you will have the "bash" tool talked about earlier.
+
+![use git bash](./images/wgi-git-bash.png)
+
+Choose the default line-encoding conversion:
+
+![default lines](./images/wgi-defaultlines.png)
+
+Use the terminal emulator they provide, its better than the one shipped with windows.
+
+![use mintty](./images/wgi-usemintty.png)
+
+Towards the end, you might see a message like this. It looks scary, but all you need to do is click "Continue"
+
+![scary message](./images/wgi-scarymessage.png)
+
+
+At this point you will be installed. You can bring up "git bash" either from your start menu, or from the right click menu on any folder background. When you do so, a terminal window will open. This terminal is where you will issue further git setup commands, and git commands in general.
+
+Get familiar with the terminal. It opens in your home folder, and maps `\\` paths on windows to more web/unix like paths with '/'. Try issuing the commands `ls`, `pwd`, and `cd folder` where folder is one of the folders you see when you do a ls. You can do a `cd ..` to come back up.
+
+You can also use the terminal which comes with the ipython notebook. More about that later.
+
+####Mac specific notes
+
+As mentioned earlier, if you ever installed Xcode or the "Command Line Developer tools", you may already have git.
+Make sure its version 2.0 or higher. (`git --version`)
+
+Or if you use **Homebrew**, you can install it from there. The current version on homebrew is 2.4.3
+ You dont need to do anyting more in this section.
+
+-----
+
+First click on the `.mpkg` file that comes when you open the downloaded `.dmg` file.
+
+When I tried to install git on my mac, I got a warning saying my security preferences wouldnt allow it to be installed. So I opened my system preferences and went to "Security".
+
+![system pref](./images/mac-git-security.png)
+
+Here you must click "Open Anyway", and the installer will run.
+
+The installer puts git as `/usr/local/git/bin/git`. Thats not a particularly useful spot. Open up `Terminal.app`.Its usually in `/Applications/Utilities`. Once the terminal opens up, issue
+
+`sudo ln -s /usr/local/git/bin/git /usr/local/bin/git`.
+
+Keep the Terminal application handy in your dock. (You could also download and use iTerm.app, which is a nicer terminal, if you are into terminal geekery). We'll be using the terminal extensively for git. You can also use the terminal which comes with the ipython notebook. More about that later.
+
+Try issuing the commands `ls`, `pwd`, and `cd folder` where folder is one of the folders you see when you do a ls. You can do a `cd ..` to come back up.
+
+###2. Optional: Creating ssh keys on your machine
+
+This ia an optional step. But it makes things much easier.
+
+There are two ways git talks to github: https, which is a web based protocol
+
+![github https](./images/github-https-clone.png)
+
+or over ssh
+
+![github ssh](./images/github-ssh-clone.png)
+
+Which one you use is your choice. I recommend ssh, and the github urls in this homework and in labs will be ssh urls.
+Every time you contact your upstream repository (hosted on github), you need to prove you're you. You *can* do this with passwords over HTTPS, but it gets old quickly. By providing an ssh public key to github, your ssh-agent will handle all of that for you, and you wont have to put in any passwords.
+
+At your terminal, issue the command (skip this if you are a seasoned ssh user and already have keys):
+
+`ssh-keygen -t rsa`
+
+It will look like this:
+![github ssh keygen](./images/sshkeygen.png)
+
+Accept the defaults. When it asks for a passphrase for your keys, put in none. (you can put in one if you know how to set up a ssh-agent).
+
+This will create two files for you, in your home folder if you accepted the defaults.
+
+`id_rsa` is your PRIVATE key. NEVER NEVER NEVER give that to anyone. `id_rsa.pub` is your public key. You must supply this to github.
+
+----
+
+###3.  Optional: Uploading ssh keys and Authentication
+
+To upload an ssh key, log in to github and click on the gear icon in the top right corner (settings). Once you're there, click on "SSH keys" on the left. This page will contain all your ssh keys once you upload any.
+
+Click on "add ssh key" in the top right. You should see this box:
+
+<img src="./images/github_ssh.png" alt="github ssh" style="width: 500px;"/>
+
+The title field should be the name of your computer or some other way to identify this particular ssh key.
+
+In the key field, you'll need to copy and paste your *public* key. **Do not paste your private ssh key here.**
+
+When you hit "Add key", you should see the key name and some hexadecimal characters show up in the list. You're set.
+
+Now, whenever you clone a repository using this form:
+
+`$ git clone git@github.com:rdadolf/ac297r-git-demo.git`,
+
+you'll be connecting over ssh, and will not be asked for your github password
+
+You will need to repeat steps 2 and 3 of the setup for each computer you wish to use with github.
+
+###4. Setting global config for git
+
+Again, from the terminal, issue the command
+
+`git config --global user.name "YOUR NAME"`
+
+This sets up a name for you. Then do
+
+`git config --global user.email "YOUR EMAIL ADDRESS"`
+
+Use the **SAME** email address you used in setting up your github account.
+
+These commands set up your global configuration. On my Mac, these are stored in the text file `.gitconfig` in my home folder.
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+##Getting and Working on Homework
+
+### Cloning your Homework repository
+Each of you will be members of the `datasciencelabs-students` organization, what this means is that your homework repositories all technically belong to us. But you will be granted unlimited access throughout the course!
+
+You'll notice when you visit the Data Science Labs' [Github page](https://github.com/datasciencelabs-students) you can only see repositores with your github-id on them, you'll get one of these for each homework throughtout the semester. When a new homework is released you can go to the corresponding repository to see what's in store. The workflow will be pretty simple. 
+
+1. go to: https://github.com/datasciencelabs-students
+
+2. click on the repository you want to work on, for example `lfcampos-2016hw1` for Homework 1. 
+
+3. copy the link near the top of the page.
+
+4. go to your `Terminal` (on Mac) or `git bash` (on Windows), change directories into your BIO 260 folder.
+
+5. `clone` the repository, for example:
+
+	`git clone https://github.com/datasciencelabs-students/lfcampos-2016hw.git`
+
+6. you should now see a new directory called `lfcampos-2016hw`, change into it.
+
+7. If you type `git status` it will give you the current status of your directory. It should look something like this:
+
+> <center><img src="./images/gitclean.png" alt="gitclean" style="width: 375px;"/></center>
+
+
+### Working on your Homework
+
+Once you have a local copy of your repository it's time to get to work! 
+
+Ater writing some of your homework in an `Rmd` file, then `knit` it, make pretty plots, find out some cool stuff about the dataset it's time to `add/commit/push`. After some work if you head back to `Terminal` you'll see that something has changed when you type `git status`:
+
+
+> <center><img src="./images/gituntracked.png" alt="gitclean" style="width: 600px;"/></center>
+
+You'll notice that there are two `untracked files`, these are here because I created these two files in the homework repository. In order to get git to track changes on these files we need to add them. So we type :
+
+``
+git add HW1.Rmd HW1.html
+``
+
+> <center><img src="./images/gitstaged.png" alt="gitclean" style="width: 450px;"/></center>
+
+Now you'll notice that the files have turned green and are now labeled as changes to be commited, now it's time to commit. This is equivalent to `save` in most programs. But what's special about `git` and other version control software is that we can track and revert changes! We also need to give what's called a `commit message` which will help us keep track of the changes we made when we loot at this in the future. Leave deteailed messages so that future you will know what you did. Future you will thank you. We'll get to this part later. Notice the `-am` flag, the `a` stands for *all*, as in all tracked files, and the `m` stands for *message*.
+
+We do that by typing:
+
+``
+git commit -am "This is my commit message, it's very detailed"
+``
+
+> <center><img src="./images/gitcommit.png" alt="gitclean" style="width: 700px;"/></center>
+
+Cool! Now we've saved our work on our local directory, we can now push our work to Github. Note, we can (and should) do this as many times as we want before the homework deadline. What's great about this is that it will make getting help from your TA easier as well as keeping a copy of your work in the cloud in case your computer crashes, or you accidentally delete something.	
+
+> <center><img src="./images/gitpush.png" alt="gitclean" style="width: 530px;"/></center>
+
+
+
+IMPORTANT: To summarize, it's important to do the following steps whenever you finish working on your homework to make full use of `git` and Github as well as generally having the best experience in this class. 
+
+1. Work on your homework
+2. Add changes to track with: `git add`
+3. Commit changes to your local repository: `git commit`
+4. Push the changes to your github repo: `git push`
+
+
+### Late Day Policy
+
