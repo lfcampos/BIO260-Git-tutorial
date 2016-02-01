@@ -52,23 +52,9 @@ You can think of most git operations as moving code or metadata from one of thes
 
 ### Forking a repository
 
-Forking a repository done on github. On github, go to the url https://github.com/cs109/Testing. Click the "Fork button on the upper right side. A screenshot is below. 
+Forking a repository done on github. It brings the repository you're forking from the existing namespace, e.g. `@datasciencelabs` to your namespace `@your-user-name`. It will ask you where you want to _fork to_, choose your own namespace. It will copy the entire repository over, and you'll have a fresh new copy. 
 
-![forking](./images/github-forking.png)
-
-Forking brings a repository into your own namespace. Its really a *cloning* process (see below), but its done between two "remotes" on the server. In other words it creates a second upstream repository on the server, called the **origin**.
-
-The forking process on github will ask you *where* you want to fork the repository. Choose your own github id.
-
-![forking](./images/github-forking2.png)
-
-In my case I will choose `@rahuldave`, as in the screenshot above. In this tutorial, wherever you see `rahuldave`, substitute your own github id.
-
-This leaves me with my own repository, `rahuldave/Testing`, as seen in this image
-
-![forking](./images/github-forking3.png)
-
-You will get a similar page.
+You will get a unique webpage for your newly minted repository.
 
 ### Cloning a repository
 
