@@ -253,6 +253,11 @@ IMPORTANT: To summarize, it's important to do the following steps whenever you f
 3. Commit changes to your local repository: `git commit`
 4. Push the changes to your github repo: `git push`
 
+Generally keep this picture in mind whenever you want to do this loop, it's important to only add changed files you care about and nothing you don't. If certain files keep poping up in your git status that you'll never want to add, e.g. `.Rhistory`, etc, add them to your `.gitignore` to simplify your life, this will keep those files from showing up here. For more info on this see the `VC_lab.Rmd`
+
+![add](./images/git_add.png)
+![commit](./images/git_commit.png)
+![push](./images/git_push.png)
 
 ### Late Day Policy
 
