@@ -1,10 +1,11 @@
-# Lab 1: Version Control with Git
+# Version Control with Git
 
-**This tutorial is largely based on the repository**:
+**This tutorial is largely based on the following repositories**:
 
-git@github.com:rdadolf/git-and-github.git
+https://github.com/rdadolf/ac297r-tools-tutorial
+https://github.com/cs109/2015lab1
 
-**which was created for IACS's ac297r course, By Robert Adolf. Most of the credit goes to him**.
+**which were created for IACS's ac297r course, By Robert Adolf and for CS109 by Rahul Dave. Most of the credit goes to them**.
 
 Version control is a way of tracking the change history of a project. Even if you have never used a version control tool, you've probably already done it manually: copying and renaming project folders ("paper-1.doc", "paper-2.doc", etc.) is a form of version control.
 
@@ -425,3 +426,6 @@ While it's tempting to work on new code directly in the `master` branch, it's us
 I cannot understate the importance of this.
 
 ** Seriously. Write good commit messages. **
+
+
+![git](https://imgs.xkcd.com/comics/git.png)
