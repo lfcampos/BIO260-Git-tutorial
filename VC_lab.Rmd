@@ -1,3 +1,7 @@
+---
+output: html_document
+---
+
 # Version Control with Git
 
 **This tutorial is largely based on the following repositories**:
@@ -13,10 +17,7 @@ Git is a tool that automates and enhances a lot of the tasks that arise when dea
 
 We'll go over the basics of git, but we should point out that a *lot* of talented people have given git tutorials, and we won't do any better than they have. In fact, if you're interested in learning git deeply and have some time on your hands, I suggest you stop reading this and instead read [the Git Book](http://git-scm.com/book/en/v2). Scott Chacon and Ben Straub have done a tremendous job, and if you want to understand both the interfaces and the mechanisms behind git, this is the place to start.
 
-In this document, we'll go over the concepts of git that are relevant to this course. You will be using git in a particular fashion, in this course, which is described in Homework 0. Homework 0 also contains details about how to install git; so if you havent done so, please do so and come back here.
-
-
-**At this point, we assume you have installed git as described in HW0 and have followed the instructions there to create ssh keys for your machine**. This enables you to use git without a pesky username-password combination.
+In this document, we'll go over the concepts of git that are relevant to this course. **At this point, we assume you have installed git as described in Git Lab and have followed the instructions there to create ssh keys for your machine**. This enables you to use git without a pesky username-password combination. You can continue working without the SSH keys, but every time you `push` you'll be asked for your username and password, more on this below. 
 
 ----
 
@@ -67,7 +68,7 @@ Now that we have a **fork** of the `cs109/Testing` repository, lets **clone** it
 
 Cloning a repository does two things: it takes a repository from somewhere (usually an **upstream repository**) and makes a local copy (your new **local repository**), and it creates the most recent copy of all of the files in the project (your new **working directory**). This is generally how you will start working on a project for the first time.
 
-Cloning a repository depends a lot on the type of repository you're using. If you're cloning out of a directory on the machine you're currently on, it's just the path to the `<project>.git` file. For github, you can clone over *ssh* using the SSH clone url in the bottom right corner of the last screenshot. This assumes you have set up your ssh keys. See HW0 for how to do this if you havent done it as yet. If you havent set up your ssh keys, use *https* instead.
+Cloning a repository depends a lot on the type of repository you're using. If you're cloning out of a directory on the machine you're currently on, it's just the path to the `<project>.git` file. For github, you can clone over *ssh* using the SSH clone url in the bottom right corner of the last screenshot. This assumes you have set up your ssh keys. See `Git Lab` for how to do this if you havent done it as yet. If you havent set up your ssh keys, use *https* instead.
 
 
 ###Poking around
