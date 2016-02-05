@@ -12,7 +12,7 @@ This lab is largely taken from the the [first CS109 lab in 2015](https://github.
 
 ##First Things
 
-Do this now, the sooner we get your Github accounts and set up a working verion of git the earlier we can spot and work through inevitable issues. 
+Do this now, the sooner we get your Github accounts and set up a working version of git the earlier we can spot and work through inevitable issues. 
 
 ###1. Create your github account
 
@@ -46,7 +46,7 @@ All the assignments and labs for this class will use R and, for the most part, t
 
 We will be using the command line version of git.
 
-On linux, install git using your system package manager (yum, apt-get, etc)
+On Linux, install git using your system package manager (yum, apt-get, etc)
 
 On the Mac, if you ever installed Xcode, you should have git installed. Or you might have installed it using `homebrew`. Either of these are fine as long as the git version is greater than 2.0
 
@@ -58,7 +58,7 @@ Otherwise, on Mac and Windows, go to http://git-scm.com. Accept all defaults in 
 
 There will be an installer `.exe` file you need to click. Accept all the defaults.
 
-Here is a screenshot from one of the defaults. It makes sure you will have the "bash" tool talked about earlier.
+Here is a screen shot from one of the defaults. It makes sure you will have the "bash" tool talked about earlier.
 
 ![use git bash](./images/wgi-git-bash.png)
 
@@ -79,7 +79,6 @@ At this point you will be installed. You can bring up "git bash" either from you
 
 Get familiar with the terminal. It opens in your home folder, and maps `\\` paths on windows to more web/unix like paths with '/'. Try issuing the commands `ls`, `pwd`, and `cd folder` where folder is one of the folders you see when you do a ls. You can do a `cd ..` to come back up.
 
-You can also use the terminal which comes with the ipython notebook. More about that later.
 
 ####Mac specific notes
 
@@ -87,13 +86,13 @@ As mentioned earlier, if you ever installed Xcode or the "Command Line Developer
 Make sure its version 2.0 or higher. (`git --version`)
 
 Or if you use **Homebrew**, you can install it from there. The current version on homebrew is 2.4.3
- You dont need to do anyting more in this section.
+ You don't need to do anything more in this section.
 
 -----
 
 First click on the `.mpkg` file that comes when you open the downloaded `.dmg` file.
 
-When I tried to install git on my mac, I got a warning saying my security preferences wouldnt allow it to be installed. So I opened my system preferences and went to "Security".
+When I tried to install git on my mac, I got a warning saying my security preferences wouldn't allow it to be installed. So I opened my system preferences and went to "Security".
 
 ![system pref](./images/mac-git-security.png)
 
@@ -103,13 +102,13 @@ The installer puts git as `/usr/local/git/bin/git`. Thats not a particularly use
 
 `sudo ln -s /usr/local/git/bin/git /usr/local/bin/git`.
 
-Keep the Terminal application handy in your dock. (You could also download and use iTerm.app, which is a nicer terminal, if you are into terminal geekery). We'll be using the terminal extensively for git. You can also use the terminal which comes with the ipython notebook. More about that later.
+Keep the Terminal application handy in your dock. (You could also download and use iTerm.app, which is a nicer terminal, if you are into terminal geek-ery). We'll be using the terminal extensively for git. 
 
 Try issuing the commands `ls`, `pwd`, and `cd folder` where folder is one of the folders you see when you do a ls. You can do a `cd ..` to come back up.
 
 ###2. Optional: Creating ssh keys on your machine
 
-This ia an optional step. But it makes things much easier.
+This is an optional step. But it makes things much easier so it's highly recommended.
 
 There are two ways git talks to github: https, which is a web based protocol
 
@@ -192,7 +191,7 @@ These commands set up your global configuration. On my Mac, these are stored in 
 ### Cloning your Homework repository
 Each of you will be members of the `datasciencelabs-students` organization, what this means is that your homework repositories all technically belong to us. But you will be granted unlimited access throughout the course!
 
-You'll notice when you visit the Data Science Labs' [Github page](https://github.com/datasciencelabs-students) you can only see repositores with your github-id on them, you'll get one of these for each homework throughtout the semester. When a new homework is released you can go to the corresponding repository to see what's in store. The workflow will be pretty simple. 
+You'll notice when you visit the Data Science Labs' [Github page](https://github.com/datasciencelabs-students) you can only see repositories with your github-id on them, you'll get one of these for each homework throughout the semester. When a new homework is released you can go to the corresponding repository to see what's in store. The work flow will be pretty simple. 
 
 1. go to: https://github.com/datasciencelabs-students
 
@@ -217,7 +216,7 @@ You'll notice when you visit the Data Science Labs' [Github page](https://github
 
 Once you have a local copy of your repository it's time to get to work! 
 
-Ater writing some of your homework in an `Rmd` file, then `knit` it, make pretty plots, find out some cool stuff about the dataset it's time to `add/commit/push`. After some work if you head back to `Terminal` you'll see that something has changed when you type `git status`:
+After writing some of your homework in an `Rmd` file, then `knit` it, make pretty plots, find out some cool stuff about the dataset it's time to `add/commit/push`. After some work if you head back to `Terminal` you'll see that something has changed when you type `git status`:
 
 
 > <center><img src="./images/gituntracked.png" alt="gitclean" style="width: 600px;"/></center>
@@ -230,7 +229,7 @@ git add HW1.Rmd HW1.html
 
 > <center><img src="./images/gitstaged.png" alt="gitclean" style="width: 450px;"/></center>
 
-Now you'll notice that the files have turned green and are now labeled as changes to be commited, now it's time to commit. This is equivalent to `save` in most programs. But what's special about `git` and other version control software is that we can track and revert changes! We also need to give what's called a `commit message` which will help us keep track of the changes we made when we loot at this in the future. Leave deteailed messages so that future you will know what you did. Future you will thank you. We'll get to this part later. Notice the `-am` flag, the `a` stands for *all*, as in all tracked files, and the `m` stands for *message*.
+Now you'll notice that the files have turned green and are now labeled as changes to be committed, now it's time to commit. This is equivalent to `save` in most programs. But what's special about `git` and other version control software is that we can track and revert changes! We also need to give what's called a `commit message` which will help us keep track of the changes we made when we loot at this in the future. Leave detailed messages so that future you will know what you did. Future you will thank you. We'll get to this part later. Notice the `-am` flag, the `a` stands for *all*, as in all tracked files, and the `m` stands for *message*.
 
 We do that by typing:
 
@@ -253,11 +252,31 @@ IMPORTANT: To summarize, it's important to do the following steps whenever you f
 3. Commit changes to your local repository: `git commit`
 4. Push the changes to your github repo: `git push`
 
-Generally keep this picture in mind whenever you want to do this loop, it's important to only add changed files you care about and nothing you don't. If certain files keep poping up in your git status that you'll never want to add, e.g. `.Rhistory`, etc, add them to your `.gitignore` to simplify your life, this will keep those files from showing up here. For more info on this see the `VC_lab.Rmd`
+Generally keep this picture in mind whenever you want to do this loop, it's important to only add changed files you care about and nothing you don't. If certain files keep popping up in your git status that you'll never want to add, e.g. `.Rhistory`, etc, add them to your `.gitignore` to simplify your life, this will keep those files from showing up here. For more info on this see the `VC_lab.Rmd`
 
 ![add](./images/git_add.png)
 ![commit](./images/git_commit.png)
 ![push](./images/git_push.png)
 
-### Late Day Policy
+# Late Day Policy
+From the course web-page:
 
+> Each student is given six late days for homework at the beginning of the semester. A late day extends the individual homework deadline by 24 hours without penalty. No more than two late days may be used on any one assignment. Assignments handed in more than 48 hours after the original deadline will not be graded. We do not accept any homework under any circumstances more than 48 hours after the original deadline. Late days are intended to give you flexibility: you can use them for any reason no questions asked. You don't get any bonus points for not using your late days. Also, you can only use late days for the individual homework deadlines all other deadlines (e.g., project milestones) are hard.
+
+We made this policy because we understand that you're all busy and things happen. We hope that this added flexibility makes gives you the freedom to enjoy the courses and engage with the material fully. 
+
+## Some unsolicited advice
+
+To be fair to all the students we have to enforce this late day policy, so we've put together a list of things to consider near the deadline.
+
+Say the homework is due Sunday at 11:59 pm.
+
+1. If we do not see any more `commit`s after the deadline we will take the last `commit` as your final submission.
+2. Check that the final `commit` is showing on your Github repo page. "I forgot to `push`" is not an acceptable excuse for late work.
+3. It may help to add a message like "This is my final version of the homework please grade this" but that's up to you.
+4. If there are `commit`s after the deadline **we will take the last `commit`** up to Tuesday at 11:59 pm as the final version. 
+5. We'll assess the number of late days you used and keep track.
+6. You **do not** need to tell us that you will take extra days, we'll be able to see the time stamp of your last `commit`.
+7. When you are done with the homework, do not `commit` or `push` any more. If you `commit` and `push` after the deadline you will be charged a late day. This is strict.
+
+# Happy `git`-ing
